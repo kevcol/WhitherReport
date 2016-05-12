@@ -19,16 +19,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Hp-0H-HRY">
-                                <rect key="frame" x="20" y="84" width="560" height="362"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9Hp-0H-HRY">
+                                <rect key="frame" x="20" y="81" width="560" height="715"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your 5-digit zip code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LUA-nZ-9Is">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="R4G-tf-feU">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="256"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FMd-x5-Zqg">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="128"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TEMP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3k-Ig-2Or">
+                                                <rect key="frame" x="0.0" y="128" width="560" height="128"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="75"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QlL-mY-rCE">
+                                        <rect key="frame" x="0.0" y="268" width="560" height="18"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVr-Y1-qtS">
+                                        <rect key="frame" x="0.0" y="298" width="560" height="43"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="36"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your 5-digit zip code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LUA-nZ-9Is">
+                                        <rect key="frame" x="0.0" y="353" width="560" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="addImage" translatesAutoresizingMaskIntoConstraints="NO" id="mPz-ba-ABh">
-                                        <rect key="frame" x="0.0" y="42" width="560" height="320"/>
+                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="addImage" translatesAutoresizingMaskIntoConstraints="NO" id="mPz-ba-ABh">
+                                        <rect key="frame" x="0.0" y="395" width="560" height="320"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="mPz-ba-ABh" secondAttribute="height" multiplier="7:4" id="9Ab-MV-dq9"/>
@@ -64,7 +90,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="New Location" id="4Qn-VC-746">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UbL-pP-V0S">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="UbL-pP-V0S">
                             <connections>
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="NrG-sy-hS8"/>
                             </connections>
@@ -76,8 +102,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cityLabel" destination="YVr-Y1-qtS" id="HhM-YE-fLZ"/>
+                        <outlet property="descriptionLabel" destination="QlL-mY-rCE" id="A3l-h8-3zA"/>
+                        <outlet property="iconImage" destination="FMd-x5-Zqg" id="1bE-n8-YNe"/>
                         <outlet property="photoImageView" destination="mPz-ba-ABh" id="uxy-8B-Z4Y"/>
                         <outlet property="saveButton" destination="Hf1-0f-768" id="bXr-Hx-PeU"/>
+                        <outlet property="tempLabel" destination="d3k-Ig-2Or" id="hFE-Pk-jA7"/>
                         <outlet property="zipTextField" destination="LUA-nZ-9Is" id="DHg-jB-RZ1"/>
                     </connections>
                 </viewController>
