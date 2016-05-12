@@ -169,7 +169,7 @@ class LocationViewController: UIViewController, UITextFieldDelegate, UIImagePick
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-//    Didn't have time to toggle F/C.  Dang
+//    Ran out of time to toggle F/C -- dang
     
 //    @IBAction func tempToggle(sender: UIButton) {
 //        

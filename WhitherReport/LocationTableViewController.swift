@@ -25,24 +25,28 @@ class LocationTableViewController: UITableViewController {
             locations += savedLocations
         } else {
             // Load the sample data
-            loadSampleMeals()
+            loadSampleLocations()
         }
-
-       
     }
     
-    func loadSampleMeals() {
+    func loadSampleLocations() {
         
-        let photo1 = UIImage(named: "calabasas")!
-        let location1 = Location(zip: "91301", photo: photo1)!
+        let photo1 = UIImage(named: "newYork")!
+        let location1 = Location(zip: "10011", photo: photo1)!
         
-        let photo2 = UIImage(named: "bridgeport")!
-        let location2 = Location(zip: "06610", photo: photo2)!
+        let photo2 = UIImage(named: "washingtonDC")!
+        let location2 = Location(zip: "20500", photo: photo2)!
         
-        let photo3 = UIImage(named: "beverlyHills")!
-        let location3 = Location(zip: "91210", photo: photo3)!
+        let photo3 = UIImage(named: "gainesville")!
+        let location3 = Location(zip: "32601", photo: photo3)!
         
-        locations += [location1, location2, location3]
+        let photo4 = UIImage(named: "chicago")!
+        let location4 = Location(zip: "60290", photo: photo4)!
+        
+        let photo5 = UIImage(named: "beverlyHills")!
+        let location5 = Location(zip: "90210", photo: photo5)!
+        
+        locations += [location1, location2, location3, location4, location5]
     }
 
     

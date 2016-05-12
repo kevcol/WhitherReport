@@ -15,9 +15,6 @@ protocol WeatherDataDelegate {
     
 }
 
-
-// http://api.openweathermap.org/data/2.5/weather?zip=91301,us&APPID=8a20e1b6e0c17bd5673bf5e5dbdf5fb9
-
 class WeatherData {
     
     var delegate: WeatherDataDelegate?
@@ -25,18 +22,15 @@ class WeatherData {
     func getWeather(city: String) {
         
         if city.characters.count != 5 {
+            // This needs validation -- just ran out of time
             print("TRY A REAL ZIP CODE WISEGUY")
+            
         } else {
             
             let appID = "8a20e1b6e0c17bd5673bf5e5dbdf5fb9"
-            
-            //let path = "http://api.openweathermap.org/data/2.5/weather?q=\(cityEscaped!)&appid=\(appID)"
-            
             let path = "http://api.openweathermap.org/data/2.5/weather?zip=\(city),us&appid=\(appID)"
-            
             let url = NSURL(string: path)
             let session = NSURLSession.sharedSession()
-            
             let task = session.dataTaskWithURL(url!) {
                 (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
                 
@@ -64,17 +58,10 @@ class WeatherData {
                     
                 }
                 
-                print("City: \(name) Lat: \(lat!), Lon: \(lon!), temp: \(temp!), desc: \(desc)")
-                
             }
             
             task.resume()
-            
         }
-        
-        
-        
     }
-    
     
 }

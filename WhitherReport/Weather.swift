@@ -9,7 +9,6 @@
 import Foundation
 
 struct Weather {
-    
     let cityName: String
     let temp: Double
     let description: String
@@ -24,7 +23,6 @@ struct Weather {
         self.icon = icon
         self.lon = lon
         self.lat = lat
-        
     }
     
     var tempC: Double {
