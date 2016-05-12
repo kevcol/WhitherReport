@@ -11,7 +11,7 @@ import UIKit
 class LocationTableViewController: UITableViewController {
     
     // MARK: Properties
-    
+    let weatherData = WeatherData()
     var locations = [Location]()
 
     override func viewDidLoad() {
@@ -135,6 +135,7 @@ class LocationTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowDetail" {
+            
             let locationDetailViewController = segue.destinationViewController as! LocationViewController
             
             // Get the cell that generated this segue.
@@ -142,6 +143,7 @@ class LocationTableViewController: UITableViewController {
                 let indexPath = tableView.indexPathForCell(selectedLocationCell)!
                 let selectedLocation = locations[indexPath.row]
                 locationDetailViewController.location = selectedLocation
+                
             }
         }
         else if segue.identifier == "AddItem" {
