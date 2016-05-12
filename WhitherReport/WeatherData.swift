@@ -25,7 +25,7 @@ class WeatherData {
     func getWeather(city: String) {
         
         if city.characters.count != 5 {
-            print("FUCK YOU -- TRY A REAL ZIP CODE WISEGUY")
+            print("TRY A REAL ZIP CODE WISEGUY")
         } else {
             
             let appID = "8a20e1b6e0c17bd5673bf5e5dbdf5fb9"
@@ -54,7 +54,7 @@ class WeatherData {
                 let desc = json["weather"][0]["description"].string
                 let icon = json["weather"][0]["icon"].string
                 
-                let weather = Weather(cityName: name!, temp: temp!, description: desc!, icon: icon!)
+                let weather = Weather(cityName: name!, temp: temp!, description: desc!, icon: icon!, lon: lon!, lat: lat!)
                 
                 if self.delegate != nil {
                     

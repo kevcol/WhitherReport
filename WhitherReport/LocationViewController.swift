@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import MapKit
+
+struct GlobalData
+{
+    static var celsius: Bool = false
+}
 
 class LocationViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, WeatherDataDelegate {
     
     // MARK: Properties
     let weatherData = WeatherData()
-    var celsius: Bool!
+    
+    //var celsius: Bool!
     @IBOutlet weak var zipTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -22,10 +29,10 @@ class LocationViewController: UIViewController, UITextFieldDelegate, UIImagePick
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     
-    /*
-     This value is either passed by `MealTableViewController` in `prepareForSegue(_:sender:)`
-     or constructed as part of adding a new meal.
-     */
+    
+    @IBOutlet weak var mapView: MKMapView!
+    let regionRadius: CLLocationDistance = 1000
+    
     var location: Location?
     
     override func viewDidLoad() {
@@ -34,7 +41,7 @@ class LocationViewController: UIViewController, UITextFieldDelegate, UIImagePick
         zipTextField.delegate = self
         weatherData.delegate = self
         
-        celsius = false
+        GlobalData.celsius = false
         
         // Set up views if editing existing location
         if let location = location {
@@ -44,6 +51,7 @@ class LocationViewController: UIViewController, UITextFieldDelegate, UIImagePick
             
             let cityName = location.zip
             weatherData.getWeather(cityName)
+            
         } else {
             
             // hide some junk
@@ -51,7 +59,9 @@ class LocationViewController: UIViewController, UITextFieldDelegate, UIImagePick
             iconImage.hidden = true
             descriptionLabel.hidden = true
             cityLabel.hidden = true
+            mapView.hidden = true
         }
+        
     }
 
     // MARK: UITextFieldDelegate
@@ -121,20 +131,23 @@ class LocationViewController: UIViewController, UITextFieldDelegate, UIImagePick
         }
     }
     
-    // MARK: Weather data
+    // MARK: Weather
     func setWeather(weather: Weather) {
         
         let formatter = NSNumberFormatter()
         let f = formatter.stringFromNumber(weather.tempF)!
         let c = formatter.stringFromNumber(weather.tempC)!
         
-        print("City: \(weather.cityName) temp: \(weather.temp) desc: \(weather.description)")
-        
         cityLabel.text = weather.cityName
         
-        if celsius == false {
+        // center the map
+        let initialLocation = CLLocation(latitude: weather.lat, longitude: weather.lon)
+        centerMapOnLocation(initialLocation)
+        print("\(weather.lat) and \(weather.lon)")
+        
+        if GlobalData.celsius == false {
             tempLabel.text = "\(f)"+"˚"
-        } else if celsius == true {
+        } else if GlobalData.celsius == true {
             tempLabel.text = "\(c)"+"˚"
         }
         
@@ -150,11 +163,42 @@ class LocationViewController: UIViewController, UITextFieldDelegate, UIImagePick
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    // MARK: Actions
-    @IBAction func submitLocationClicked(sender: UIButton) {
-        //zipNameLabel.text = "Default Text"
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
     
+//    Didn't have time to toggle F/C.  Dang
+    
+//    @IBAction func tempToggle(sender: UIButton) {
+//        
+//        
+//        if GlobalData.celsius == false {
+//            farOrCel.setImage(UIImage(named: "celsius.png"), forState: .Normal)
+//            GlobalData.celsius = true
+//            // change temp
+//            let tempDigits = Double(tempLabel.text!)
+//            let celsiusFromFahrenheit = (tempDigits! - 32) / 1.8
+//            // trim number
+//            tempLabel.text = "\(celsiusFromFahrenheit)"
+//
+//            
+//        } else if GlobalData.celsius == true {
+//            farOrCel.setImage(UIImage(named: "fahrenheit.png"), forState: .Normal)
+//            GlobalData.celsius = false
+//            // change temp
+//            let tempDigits = Double(tempLabel.text!)
+//            let fahrenheitFromCelsius = (tempDigits! * 1.8) + 32
+//            // trim number
+//            tempLabel.text = "\(fahrenheitFromCelsius)"
+//            
+//        }
+//
+//    }
+    
+
+    // MARK: Actions
     @IBAction func selectImage(sender: UITapGestureRecognizer) {
         
         // Hide keyboard ... just in case

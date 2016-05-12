@@ -15,6 +15,7 @@
 		1714ECB21CE42D3F009AA8FF /* WhitherReportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714ECB11CE42D3F009AA8FF /* WhitherReportTests.swift */; };
 		177A873B1CE471C000007D70 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177A873A1CE471C000007D70 /* WeatherData.swift */; };
 		177A873D1CE4722400007D70 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177A873C1CE4722400007D70 /* Weather.swift */; };
+		177A87411CE4916400007D70 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 177A87401CE4916400007D70 /* MapKit.framework */; };
 		17CB0B501CE43D080081D5F1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB0B4F1CE43D080081D5F1 /* Location.swift */; };
 		17CB0B511CE43D080081D5F1 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB0B4F1CE43D080081D5F1 /* Location.swift */; };
 		17CB0B531CE442350081D5F1 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CB0B521CE442350081D5F1 /* LocationTableViewCell.swift */; };
@@ -47,6 +48,7 @@
 		1714ECB31CE42D3F009AA8FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		177A873A1CE471C000007D70 /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		177A873C1CE4722400007D70 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		177A87401CE4916400007D70 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		17CB0B4F1CE43D080081D5F1 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		17CB0B521CE442350081D5F1 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		17CB0B551CE4477E0081D5F1 /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				177A87411CE4916400007D70 /* MapKit.framework in Frameworks */,
 				62531D9B4683B49B16860B92 /* Pods_WhitherReport.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +151,7 @@
 		34AB7EFB5CAC22D9158E8FAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				177A87401CE4916400007D70 /* MapKit.framework */,
 				66A598FD162CAEFE7F5C1DA4 /* Pods_WhitherReport.framework */,
 			);
 			name = Frameworks;
